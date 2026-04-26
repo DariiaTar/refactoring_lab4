@@ -7,7 +7,7 @@
 
 ### 1.1 UML-діаграма класів
 
-![UML-діаграма](docs/uml_diagram.png)
+![UML-діаграма](docs/uml.png)
 
 ### 1.2 Опис предметної області
 
@@ -19,18 +19,17 @@
 
 ### 1.3 Ключові класи
 
-| Клас | Відповідальність 
-|------|-----------------|----------------|
-| `TrainingService` | Одна тренувальна послуга (назва, ціна, тривалість, категорія) | 
-| `ServiceMenu` | Каталог доступних послуг залу | 
-| `Client` | Клієнт з ідентифікатором, email та типом членства | 
-| `Admin` | Адміністратор, розширює `Client` |
-| `Order` | Бронювання клієнта, реалізує `ISubject` | 
+| Клас | Відповідальність |
+|------|-----------------|
+| `TrainingService` | Одна тренувальна послуга (назва, ціна, тривалість, категорія) |
+| `ServiceMenu` | Каталог доступних послуг залу |
+| `Client` | Клієнт з ідентифікатором, email та типом членства |
+| `Order` | Бронювання клієнта, реалізує `ISubject` |
 | `OrderItem` | Рядок замовлення: послуга + кількість |
-| `OrderDatabase` | Singleton-сховище всіх замовлень | 
-| `TrainerNotifier` | Оповіщає тренерський склад | 
+| `OrderDatabase` | Singleton-сховище всіх замовлень |
+| `TrainerNotifier` | Оповіщає тренерський склад |
 | `ReceptionNotifier` | Оповіщає рецепцію |
-| `EmailNotifier` | Надсилає email-сповіщення клієнту  |
+| `EmailNotifier` | Надсилає email-сповіщення клієнту |
 | `OrderService` | Бізнес-логіка: оркеструє створення та підтвердження |
 
 ### 1.4 Принципи SOLID
@@ -72,11 +71,11 @@ class OrderService:
 ```
 fitness_gym/
 ├── src/
-│   ├── models.py      # TrainingService, Client, Order, ServiceMenu + інтерфейси
-│   ├── database.py    # OrderDatabase (Singleton, thread-safe)
-│   ├── factory.py     # OrderFactory + Standard/Bulk/Premium + Provider
-│   ├── observers.py   # TrainerNotifier, ReceptionNotifier, EmailNotifier
-│   └── service.py     # OrderService (бізнес-логіка)
+│   ├── models.py          # TrainingService, Client, Order, ServiceMenu + інтерфейси
+│   ├── repository.py      # OrderDatabase (Singleton, thread-safe)
+│   ├── order_builders.py  # OrderFactory + Standard/Bulk/Premium + Provider
+│   ├── notifiers.py       # TrainerNotifier, ReceptionNotifier, EmailNotifier
+│   └── order_service.py   # OrderService (бізнес-логіка)
 ├── tests/
 │   ├── test_part1_basic.py      # 20 тестів — базові об'єкти
 │   ├── test_part2_tdd.py        # 20 тестів — TDD функціонал
