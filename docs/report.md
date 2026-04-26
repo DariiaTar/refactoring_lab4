@@ -243,7 +243,7 @@ class TrainerNotifier(IObserver):
 
 ---
 
-## Журнал тестування
+## Тестування
 
 ### Підсумок
 
@@ -261,23 +261,6 @@ class TrainerNotifier(IObserver):
 | Частина 3 (патерни) | 21 тест |
 
 
-### Консольний вивід pytest
-
-```
-============================= test session starts ==============================
-platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0
-rootdir: /fitness_gym
-configfile: pytest.ini
-collected 61 items
-
-tests/test_part1_basic.py::TestTrainingService::test_create_service PASSED
-tests/test_part1_basic.py::TestTrainingService::test_negative_price_raises PASSED
-tests/test_part1_basic.py::TestTrainingService::test_zero_duration_raises PASSED
-...
-tests/test_part3_patterns.py::TestObserverPattern::test_notification_contains_order_id PASSED
-
-============================== 61 passed in 0.29s ==============================
-```
 
 ---
 
